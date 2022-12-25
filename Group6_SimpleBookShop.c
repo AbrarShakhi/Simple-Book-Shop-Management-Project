@@ -1,8 +1,7 @@
 #include <stdio.h>  //Standard input & output header file.
 #include <conio.h>  //Console input $ output header file. [We have used getch() functiion.]
-#include <string.h> //String header file. [We jave used strcmp() function]
+#include <string.h> //String header file. [We jave used strcmp(), strupr() function]
 #include <stdlib.h> //Standard library header file. [We have used flush() and system("cls") function]
-#include <ctype.h>  //[We have used tolower() function]
 
 int SerialNumber; // Declare a integer veriable that can be used by all the fuction.
 struct book
@@ -39,7 +38,7 @@ again:             // Tsis is for goto statement.
     scanf("%d", &navigator); // It will take a integer and store it to navigator.
     printf("\n");
     fflush(stdin); /*Without fflush function, If the user input a carecter or string in
-    [scanf("%d",&navigator);-line 39] it will make a infinite loop.
+    [scanf("%d",&navigator);-line 38] it will make a infinite loop.
     The purpose of fflush(stdin) is to clean (or flush) the output buffer and transfer the buffered
     data into Terminal or Disk.*/
 
