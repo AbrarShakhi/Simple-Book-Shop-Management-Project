@@ -37,8 +37,10 @@ int main()
     printf("Enter your choice : ");
     scanf("%d",&navigator); //It will take a integer and store it to navigator. 
     printf("\n");
-    fflush(stdin); /*Without fflush function, If the user input a carecter or string in [scanf("%d",&navigator);-line 38] It will make a infinite loop.
-    The purpose of fflush(stdin) is to clean (or flush) the output buffer and transfer the buffered data into Terminal or Disk.*/
+    fflush(stdin); /*Without fflush function, If the user input a carecter or string in
+    [scanf("%d",&navigator);-line 38] it will make a infinite loop.
+    The purpose of fflush(stdin) is to clean (or flush) the output buffer and transfer the buffered
+    data into Terminal or Disk.*/
 
     switch(navigator) //if the navigator is 1 to 6 then it will do certain tasks.
     {
@@ -61,7 +63,7 @@ int main()
             system("cls"); //It will clear the console screen before Goodbye message.
             ShowGoodByeMessage(); //If the user enter 6 then call ShowGoodByeMessage() function.
             getch(); //Program will wait before ending for user to enter any key
-            return 0; //and program will end right here.
+            exit(0); //and program will end right here.
         break;
         default: //If useer enter invalid input (navigator<1 || bavigaror>6)
             printf("\nInvalid Inout.\n"); //Show a Invalid message.
@@ -70,6 +72,7 @@ int main()
         break;
     }
     goto again; //It will jump to again.
+    return 0;
 }
 //Function Defination.
 void ShowWelcomeMessage()
@@ -132,10 +135,12 @@ void AddBook()
     printf("Enter book price: ");
     scanf("%f", &lib[SerialNumber].bPrice);
     fflush(stdin);
+    //to clean (or flush) the output buffer and transfer the buffered data into Terminal or Disk.
 
     printf("Enter number of copies: ");
     scanf("%d", &lib[SerialNumber].bCopies);
     fflush(stdin);
+    //to clean (or flush) the output buffer and transfer the buffered data into Terminal or Disk.
 
     ++SerialNumber; //SerialNumber will increase if user adds book.
 }
