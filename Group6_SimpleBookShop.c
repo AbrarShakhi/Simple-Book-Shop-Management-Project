@@ -1,6 +1,6 @@
 #include <stdio.h>  //Standard input & output header file.
 #include <conio.h>  //Console input $ output header file. [We have used getch() functiion.]
-#include <string.h> //String header file. [We jave used strcmp(), strupr() function]
+#include <string.h> //String header file. [We jave used strcmp() function]
 #include <stdlib.h> //Standard library header file. [We have used flush() and system("cls") function]
 
 int SerialNumber; // Declare a integer veriable that can be used by all the fuction.
@@ -128,7 +128,6 @@ void AddBook()
 {
     printf("Enter book title: ");
     fgets(lib[SerialNumber].bName, 50, stdin);
-    strupr(lib[SerialNumber].bName);
 
     printf("Enter book author: ");
     fgets(lib[SerialNumber].bAuthor, 50, stdin);
@@ -148,7 +147,7 @@ void AddBook()
 void SearchBook()
 {
     int i, x = 0;
-    char searchtitle[50]; // Declare a veriable to store a string
+    char searchtitle[50], title[50]; // Declare a veriable to store a string
 
     printf("Enter book title to search: ");
     fgets(searchtitle, 50, stdin);
@@ -157,7 +156,9 @@ void SearchBook()
     printf("\n");
     for (i = 0; i < SerialNumber; i++)
     {
-        if (strcmp(searchtitle, lib[i].bName) == 0) // Compare two string
+        strcpy(title, lib[i].bName);
+        strupr(title);
+        if (strcmp(searchtitle, title) == 0) // Compare two string
         {
             printf("Book title: %s", lib[i].bName);
             printf("Book author: %s", lib[i].bAuthor);
