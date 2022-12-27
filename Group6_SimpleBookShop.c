@@ -71,6 +71,7 @@ again:             // Tsis is for goto statement.
         goto again;                   // jump statement
         break;
     }
+    navigator=0;
     goto again; // It will jump to again.
     return 0;
 }
@@ -126,7 +127,7 @@ void ShowBooks() // Defination of ShowBooks() function.
 }
 void AddBook()
 {
-    if(SerialNumber<=501)
+    if(SerialNumber<=500)
     {
         printf("Enter book title: ");
         fgets(lib[SerialNumber].bName, 50, stdin);
@@ -147,7 +148,7 @@ void AddBook()
         ++SerialNumber; // SerialNumber will increase if user adds book.
     }
     else
-        printf("Maximum book added.\n");
+        printf("You can add maximum 500 book.\n");
 }
 void SearchBook()
 {
