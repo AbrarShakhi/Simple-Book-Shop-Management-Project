@@ -62,7 +62,7 @@ again:             // Tsis is for goto statement.
     case 6:
         system("cls");        // It will clear the console screen before Goodbye message.
         ShowGoodByeMessage(); // If the user enter 6 then call ShowGoodByeMessage() function.
-        getch();              // Program will wait before ending for user to enter any key
+        getch();             // Program will wait before ending for user to enter any key
         exit(EXIT_SUCCESS);   // and program will end right here.
         break;
     default:                          // If useer enter invalid input (navigator<1 || bavigaror>6)
@@ -126,23 +126,28 @@ void ShowBooks() // Defination of ShowBooks() function.
 }
 void AddBook()
 {
-    printf("Enter book title: ");
-    fgets(lib[SerialNumber].bName, 50, stdin);
+    if(SerialNumber<=501)
+    {
+        printf("Enter book title: ");
+        fgets(lib[SerialNumber].bName, 50, stdin);
 
-    printf("Enter book author: ");
-    fgets(lib[SerialNumber].bAuthor, 50, stdin);
+        printf("Enter book author: ");
+        fgets(lib[SerialNumber].bAuthor, 50, stdin);
 
-    printf("Enter book price: ");
-    scanf("%f", &lib[SerialNumber].bPrice);
-    fflush(stdin);
-    // to clean (or flush) the output buffer and transfer the buffered data into Terminal or Disk.
+        printf("Enter book price: ");
+        scanf("%f", &lib[SerialNumber].bPrice);
+        fflush(stdin);
+        // to clean (or flush) the output buffer and transfer the buffered data into Terminal or Disk.
 
-    printf("Enter number of copies: ");
-    scanf("%d", &lib[SerialNumber].bCopies);
-    fflush(stdin);
-    // to clean (or flush) the output buffer and transfer the buffered data into Terminal or Disk.
+        printf("Enter number of copies: ");
+        scanf("%d", &lib[SerialNumber].bCopies);
+        fflush(stdin);
+        // to clean (or flush) the output buffer and transfer the buffered data into Terminal or Disk.
 
-    ++SerialNumber; // SerialNumber will increase if user adds book.
+        ++SerialNumber; // SerialNumber will increase if user adds book.
+    }
+    else
+        printf("Maximum book added.\n");
 }
 void SearchBook()
 {
