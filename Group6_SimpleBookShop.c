@@ -159,9 +159,9 @@ void SearchBook() // Definition of void SearchBook() function
     printf("\n");
     for (i = 0; i < SerialNumber; i++)
     {
-        strcpy(title, lib[i].bName); // It will copy the []
-        strupr(title);
-        if (strcmp(searchtitle, title) == 0) // Compare two string
+        strcpy(title, lib[i].bName);         // It will copy the string drom lib[i].bName and shore it to title.
+        strupr(title);                       // Now this will make all the charecter uppercase
+        if (strcmp(searchtitle, title) == 0) // Compare two string, if matches then condition will true.
         {
             printf("Book title: %s", lib[i].bName);
             printf("Book author: %s", lib[i].bAuthor);
@@ -170,9 +170,8 @@ void SearchBook() // Definition of void SearchBook() function
             x++; // x will increase if book matches
         }
     }
-    if (x == 0)
+    if (x == 0) // When no book matches the x==0 and shows this messages.
         printf("Book not found.\n");
-    // If Search do not match then x will 0 it and will print this message.
 }
 void ShowNumberOfBooks() // Definition of void ShowNumberOfBooks() function
 {                        // total number of books is SerialNumber.
