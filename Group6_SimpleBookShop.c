@@ -69,7 +69,8 @@ int main()
             ShowMenuOption();             // call ShowMenuOption()
             break;
         }
-        navigator = 0;
+        navigator = 0; /*if we do not make navigator=0 navigator will have privious value the in
+        next scan if we do not enter any integer value it will not show "Invalid Input"*/
     }
 }
 // Function Definition.
@@ -167,6 +168,7 @@ void SearchBook() // Definition of void SearchBook() function
             printf("Book author: %s", lib[i].bAuthor);
             printf("Book price: %.2f\n", lib[i].bPrice);
             printf("Copies: %d\n\n", lib[i].bCopies);
+
             x++; // x will increase if book matches
         }
     }
