@@ -1,7 +1,6 @@
 #include <stdio.h>  //Standard input & output header file.
 #include <conio.h>  //Console input $ output header file. [We have used getch() functiion.]
 #include <string.h> //String header file. [We jave used strcmp() function]
-#include <stdlib.h> //Standard library header file. [We have used flush() and system("cls") function]
 
 int SerialNumber; // Declare a integer veriable that can be used by all the fuction.
 struct book
