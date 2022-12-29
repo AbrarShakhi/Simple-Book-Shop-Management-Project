@@ -122,9 +122,9 @@ void ShowBooks() // Definition of ShowBooks() function.
         }
     }
 }
-void AddBook() //Definition of void AddBook() function
+void AddBook() // Definition of void AddBook() function
 {
-    if (SerialNumber <= 500) //We can add maximum 500 books in this program 
+    if (SerialNumber <= 500) // We can add maximum 500 books in this program
     {
         printf("Enter book title: ");
         fgets(lib[SerialNumber].bName, 50, stdin);
@@ -144,22 +144,22 @@ void AddBook() //Definition of void AddBook() function
 
         ++SerialNumber; // SerialNumber will increase if user adds book.
     }
-    else //When we reach to maximum book added it will show this message. 
+    else // When we reach to maximum book added it will show this message.
         printf("You can add maximum 500 book.\n");
 }
-void SearchBook() //Definition of void SearchBook() function
+void SearchBook() // Definition of void SearchBook() function
 {
     int i, x = 0;
     char searchtitle[50], title[50]; // Declare a variable to store a string
 
     printf("Enter book title to search: ");
     fgets(searchtitle, 50, stdin);
-    strupr(searchtitle); // It will make the string upper case stored in searchtitle veriable. 
+    strupr(searchtitle); // It will make the string upper case stored in searchtitle veriable.
 
     printf("\n");
     for (i = 0; i < SerialNumber; i++)
     {
-        strcpy(title, lib[i].bName); //It will copy the []
+        strcpy(title, lib[i].bName); // It will copy the []
         strupr(title);
         if (strcmp(searchtitle, title) == 0) // Compare two string
         {
@@ -167,14 +167,14 @@ void SearchBook() //Definition of void SearchBook() function
             printf("Book author: %s", lib[i].bAuthor);
             printf("Book price: %.2f\n", lib[i].bPrice);
             printf("Copies: %d\n\n", lib[i].bCopies);
+            x++; // x will increase if book matches
         }
-        x++; // x will increase if book matches
     }
     if (x == 0)
         printf("Book not found.\n");
     // If Search do not match then x will 0 it and will print this message.
 }
-void ShowNumberOfBooks() //Definition of void ShowNumberOfBooks() function
-{ // total number of books is SerialNumber.
+void ShowNumberOfBooks() // Definition of void ShowNumberOfBooks() function
+{                        // total number of books is SerialNumber.
     printf("Total number of books in the shop: %d\n", SerialNumber);
 }
