@@ -1,8 +1,8 @@
 #include <stdio.h>  //Standard input & output header file.
-#include <conio.h>  //Console input $ output header file. [We have used getch() functiion.]
-#include <string.h> //String header file. [We jave used strcmp() function]
+#include <conio.h>  //Console input & output header file. [We have used getch() function.]
+#include <string.h> //String header file. [We have used strcmp(), strlwr(), strcpy() function]
 
-int SerialNumber; // Declare a integer veriable that can be used by all the fuction.
+int SerialNumber; // Declare a integer variable that can be used by all the function.
 struct book
 {
     char bName[50];
@@ -10,7 +10,7 @@ struct book
     float bPrice;
     int bCopies;
 };
-struct book lib[500]; // Declare struct arrary vaeeriable that can be used by all the fuction.
+struct book lib[500]; // Declare struct arrary variable that can be used by all the function.
 
 // Function prototype.
 void ShowWelcomeMessage();
@@ -21,13 +21,13 @@ void AddBook();
 void SearchBook();
 void ShowNumberOfBooks();
 
-// main fuction.
+// main function.
 int main()
 {
     SerialNumber = 0; /*First SerialNumber = 0
       This number will increase if user add a book.*/
 
-    ShowWelcomeMessage(); // Function call .It will show the welcome message.
+    ShowWelcomeMessage(); // Function call. It will show the welcome message.
     ShowMenuOption();     // It will show the Menu option.
 
     int navigator; // integer variable for switch case.
@@ -37,7 +37,7 @@ int main()
         printf("Enter your choice : ");
         scanf("%d", &navigator); // It will take a integer and store it to navigator.
         printf("\n");
-        fflush(stdin); /*Without fflush function, If the user input a carecter or string in
+        fflush(stdin); /*Without fflush function, If the user input a character or string in
         [scanf("%d",&navigator);-line 38] it will make a infinite loop.
         The purpose of fflush(stdin) is to clean (or flush) the output buffer and transfer the buffered
         data into Terminal or Disk.*/
@@ -65,15 +65,14 @@ int main()
             return 0;             // and program will end right here.
             break;
         default:                          // If user enter invalid input (navigator<1 || navigator>6)
-            printf("\nInvalid Inout.\n"); // Show a Invalid message.
+            printf("\nInvalid Input.\n"); // Show a Invalid message.
             ShowMenuOption();             // call ShowMenuOption()
             break;
         }
         navigator = 0;
     }
-    return 0;
 }
-// Function Defination.
+// Function Definition.
 void ShowWelcomeMessage()
 {
     // Welcome message
@@ -106,14 +105,14 @@ void ShowMenuOption()
     printf("6) Exit from this book shop.\n");
     printf("\n");
 }
-void ShowBooks() // Defination of ShowBooks() function.
+void ShowBooks() // Definition of ShowBooks() function.
 {
     if (SerialNumber == 0) // If user do not add any books then the condition is true and print this message.
-        printf("Opps! Looks like shelfs are empty.\n");
+        printf("Shelfs are empty.\n");
     else // If user add any books then SerialNumber!=0.
     {
         printf("List of books:\n\n");
-        int i;                             // Declare a veriable for loop.
+        int i;                             // Declare a variable for loop.
         for (i = 0; i < SerialNumber; i++) // loop will run until i<SerialNumber.
         {
             printf("Book title: %s", lib[i].bName);
@@ -123,9 +122,9 @@ void ShowBooks() // Defination of ShowBooks() function.
         }
     }
 }
-void AddBook()
+void AddBook() //Definition of void AddBook() function
 {
-    if (SerialNumber <= 500)
+    if (SerialNumber <= 500) //We can add maximum 500 books in this program 
     {
         printf("Enter book title: ");
         fgets(lib[SerialNumber].bName, 50, stdin);
@@ -145,22 +144,22 @@ void AddBook()
 
         ++SerialNumber; // SerialNumber will increase if user adds book.
     }
-    else
+    else //When we reach to maximum book added it will show this message. 
         printf("You can add maximum 500 book.\n");
 }
-void SearchBook()
+void SearchBook() //Definition of void SearchBook() function
 {
     int i, x = 0;
-    char searchtitle[50], title[50]; // Declare a veriable to store a string
+    char searchtitle[50], title[50]; // Declare a variable to store a string
 
     printf("Enter book title to search: ");
     fgets(searchtitle, 50, stdin);
-    strupr(searchtitle);
+    strupr(searchtitle); // It will make the string upper case stored in searchtitle veriable. 
 
     printf("\n");
     for (i = 0; i < SerialNumber; i++)
     {
-        strcpy(title, lib[i].bName);
+        strcpy(title, lib[i].bName); //It will copy the []
         strupr(title);
         if (strcmp(searchtitle, title) == 0) // Compare two string
         {
@@ -173,9 +172,9 @@ void SearchBook()
     }
     if (x == 0)
         printf("Book not found.\n");
-    // If Search dont match then it will print this message.
+    // If Search do not match then x will 0 it and will print this message.
 }
-void ShowNumberOfBooks()
+void ShowNumberOfBooks() //Definition of void ShowNumberOfBooks() function
 { // total number of books is SerialNumber.
     printf("Total number of books in the shop: %d\n", SerialNumber);
 }
