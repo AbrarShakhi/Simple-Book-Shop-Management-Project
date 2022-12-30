@@ -109,7 +109,7 @@ void ShowMenuOption()
 void ShowBooks() // Definition of ShowBooks() function.
 {
     if (SerialNumber == 0) // If user do not add any books then the condition is true and print this message.
-        printf("Shelfs are empty.\n");
+        printf("Shelves are empty.\n");
     else // If user add any books then SerialNumber!=0.
     {
         printf("List of books:\n\n");
