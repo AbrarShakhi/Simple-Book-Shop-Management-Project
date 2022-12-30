@@ -131,7 +131,7 @@ void AddBook() // Definition of void AddBook() function
         fgets(lib[SerialNumber].bName, 50, stdin);
 
         printf("Enter book author: ");
-        fgets(lib[SerialNumber].bAuthor, 50, stdin);
+        fgets(lib[SerialNumber].bAuthor, 30, stdin);
 
         printf("Enter book price: ");
         scanf("%f", &lib[SerialNumber].bPrice);
