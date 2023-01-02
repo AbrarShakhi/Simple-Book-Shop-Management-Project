@@ -1,6 +1,7 @@
 #include <stdio.h>  //Standard input & output header file.
 #include <conio.h>  //Console input & output header file. [We have used getch() function.]
 #include <string.h> //String header file. [We have used strcmp(), strlwr(), strcpy() function]
+#include <stdlib.h> //Standard library header file [We have used system("cls")]
 
 int SerialNumber; // Declare a integer variable that can be used by all the function.
 struct book
@@ -38,7 +39,7 @@ int main()
         scanf("%d", &navigator); // It will take a integer and store it to navigator.
         printf("\n");
         fflush(stdin); /*Without fflush function, If the user input a character or string in
-        [scanf("%d",&navigator);-line 38] it will make a infinite loop.
+        [scanf("%d",&navigator);-line 39] it will make a infinite loop.
         The purpose of fflush(stdin) is to clean (or flush) the output buffer and transfer the buffered
         data into Terminal or Disk.*/
 
@@ -60,6 +61,7 @@ int main()
             ShowNumberOfBooks(); // If the user enter 5 then call ShowNumberOfBooks() function.
             break;
         case 6:
+        	system("cls");
             ShowGoodByeMessage(); // If the user enter 6 then call ShowGoodByeMessage() function.
             getch();              // Program will wait before ending for user to enter any key
             return 0;             // and program will end right here.
